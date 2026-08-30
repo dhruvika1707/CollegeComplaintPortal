@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API_URL = "http://localhost:5000/api/complaints";
+const API_URL = "https://collegecomplaintportal-production.up.railway.app/api/complaints";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -36,7 +36,7 @@ const fetchAdminComplaints = async () => {
     const token = localStorage.getItem("token");
 
     const response = await axios.get(
-      "http://localhost:5000/api/complaints",
+      "https://collegecomplaintportal-production.up.railway.app/api/complaints",
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -59,7 +59,7 @@ const fetchMyComplaints = async () => {
     const token = localStorage.getItem("token");
 
     const response = await axios.get(
-      "http://localhost:5000/api/complaints/my",
+      "https://collegecomplaintportal-production.up.railway.app/api/complaints/my",
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -148,7 +148,7 @@ const fetchMyComplaints = async () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://collegecomplaintportal-production.up.railway.app/api/auth/login",
         loginData
       );
 
@@ -191,7 +191,7 @@ const updateComplaint = async (id, status, adminRemarks) => {
     const token = localStorage.getItem("token");
 
     await axios.put(
-      `http://localhost:5000/api/complaints/${id}`,
+      `https://collegecomplaintportal-production.up.railway.app/api/complaints/${id}`,
       {
         status: status,
         adminRemarks: adminRemarks
@@ -643,7 +643,7 @@ const updateComplaint = async (id, status, adminRemarks) => {
       const token = localStorage.getItem("token");
 
       await axios.delete(
-        `http://localhost:5000/api/complaints/${complaint._id}`,
+  `https://collegecomplaintportal-production.up.railway.app/api/complaints/${complaint._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`
