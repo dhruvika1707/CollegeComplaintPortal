@@ -39,7 +39,7 @@ const fetchAdminComplaints = async () => {
       "https://collegecomplaintportal-production.up.railway.app/api/complaints",
       {
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${localStorage.getItem("token")}`
         }
       }
     );
@@ -198,7 +198,7 @@ const updateComplaint = async (id, status, adminRemarks) => {
       },
       {
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${localStorage.getItem("token")}`
         }
       }
     );
@@ -646,7 +646,7 @@ const updateComplaint = async (id, status, adminRemarks) => {
   `https://collegecomplaintportal-production.up.railway.app/api/complaints/${complaint._id}`,
         {
           headers: {
-            Authorization: `Bearer ${token}`
+            Authorization:  `Bearer ${localStorage.getItem("token")}`
           }
         }
       );
