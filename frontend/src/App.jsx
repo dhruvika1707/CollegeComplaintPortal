@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API_URL = "https://collegecomplaintportal-production.up.railway.app/api/complaints";
-
+const API_URL = "https://collegecomplaintportal-production.up.railway.app";
 function App() {
   const [formData, setFormData] = useState({
     title: "",
@@ -39,7 +38,7 @@ const fetchAdminComplaints = async () => {
       "https://collegecomplaintportal-production.up.railway.app/api/complaints",
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`
+          Authorization: `Bearer ${token}`
         }
       }
     );

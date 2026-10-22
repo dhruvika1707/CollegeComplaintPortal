@@ -14,6 +14,12 @@ const protect = (req, res, next) => {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
+    if (decoded.mfaPending) {
+      return res.status(401).json({
+        message: "MFA verification pending. Complete MFA verification to gain access."
+      });
+    }
+
     req.user = decoded;
 
     next();

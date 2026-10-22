@@ -1,0 +1,21 @@
+# ==============================================================================
+# UNHARDENED DOCKERFILE (BASELINE FOR TRIVY VULNERABILITY SCAN)
+# Features that cause security vulnerabilities:
+# - Full-fat Debian base image (node:20) containing hundreds of unused OS utilities
+# - Runs as default root user (UID 0)
+# - No multi-stage build or dependency pruning
+# ==============================================================================
+FROM node:20
+
+WORKDIR /app
+
+# Copy full package descriptors and code
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 5000
+
+# Runs directly as root
+CMD ["node", "server.js"]

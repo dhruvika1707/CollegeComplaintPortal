@@ -25,6 +25,16 @@ const userSchema = new mongoose.Schema(
       type: String,
       enum: ["student", "admin"],
       default: "student"
+    },
+
+    isMfaEnabled: {
+      type: Boolean,
+      default: false
+    },
+
+    mfaSecret: {
+      type: String,
+      default: null
     }
   },
   {
